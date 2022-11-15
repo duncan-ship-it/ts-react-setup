@@ -7,7 +7,12 @@ const htmlPlugin = new HtmlWebPackPlugin({
 const path = require('path');
 
 module.exports = {
-    entry: './src/index.ts',
+    entry: './src/index.tsx',
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'bundle.js',
+        clean: true,
+    },
     module: {
         rules: [
             {
@@ -19,12 +24,6 @@ module.exports = {
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
-    },
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        publicPath: '/dist/',
-        filename: 'bundle.js',
-        clean: true,
     },
     plugins: [htmlPlugin],
 };
